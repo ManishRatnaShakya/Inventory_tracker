@@ -2,9 +2,12 @@ const express = require('express');
 const dotenv = require('dotenv');
 const sequelize = require('./config/database');
 
-const Product = require('./models/Product');
-const Category = require('./models/Category');
-
+const { Category,
+    Product,
+    Sales,
+    Purchase,
+    Supplier
+} = require('./models/index')
 dotenv.config();
 
 const app = express();
