@@ -14,7 +14,6 @@ const Purchase = sequelize.define('Purchase', {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW
     },
-
 });
 
 //ForiegnKey

@@ -41,7 +41,7 @@ exports.getProductById = async (req, res, next) => {
     }
   };
   
-  exports.deleteProduct = async (req, res, next) => {
+exports.deleteProduct = async (req, res, next) => {
     try {
       await productService.deleteProduct(req.params.id);
       res.status(204).send();
