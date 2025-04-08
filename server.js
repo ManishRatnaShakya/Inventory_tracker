@@ -1,27 +1,13 @@
-const express = require('express');
-const dotenv = require('dotenv');
+
+
+require('dotenv').config();
 const sequelize = require('./config/database');
+const app = require('./app');
 
-const { Category,
-    Product,
-    Sales,
-    Purchase,
-    Supplier
-} = require('./models/index')
-dotenv.config();
-
-const app = express();
-app.use(express.json());
-
-
-const PORT = process.env.PORT || 5000;
-
-app.get('/', (req, res) => {
-    res.send('Inventory Tracker API')
-});
+const PORT = process.env.PORT || 5001
 
 sequelize.sync({
-    force: true
+    force: false
 }).then(() => {
     console.log('Database Synced');
     app.listen(PORT, () => {
