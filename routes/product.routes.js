@@ -1,8 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const productController = require('../controllers/product.controller')
+const productController = require('../controllers/product.controller');
+const { verifyToken } = require('../middleware/auth.middleware');
 
-router.post('/', productController.createProduct);
+router.post('/',
+    verifyToken,
+    requireRole('admin'),// only admins can add products 
+    productController.createProduct
+);
+
 router.get('/', productController.getAllProducts);
 router.post('/', productController.createProduct);
 router.put('/:id', productController.updateProduct);

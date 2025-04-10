@@ -7,7 +7,8 @@ const {
     Product,
     Sales,
     Purchase,
-    Supplier
+    Supplier,
+    User
 } = require('./models/index');
 
 dotenv.config();
@@ -15,13 +16,14 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-
+const authRouter = require('./routes/auth.routes');
 const categoryRouter = require('./routes/category.routes');
 const productRouter = require('./routes/product.routes');
 const supplierRouter = require('./routes/supplier.routes');
 const purchaseRouter = require('./routes/purchase.routes');
 const salesController = require('./routes/sales.routes');
 
+app.use('/api/v1/auth')
 app.use('/api/v1/categories', categoryRouter);
 app.use('/api/v1/products', productRouter);
 app.use('/api/v1/supplier', supplierRouter);
