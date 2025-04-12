@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken')
 const JWT_SECRET = process.env.JWT_SECRET || 'supersecret';
 
 
-exports.verifyToken = (req, res, next) => {
+exports.authenticate = (req, res, next) => {
     const token = req.headers['authorization']?.split(' ')[1]; //bearer token
     if(!token) return res.status(401).json({error: 'Access Denied'});
 

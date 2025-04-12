@@ -4,12 +4,12 @@ const { User } = require('../models');
 
 const JWT_SECRET = process.env.JWT_SECRET || 'supersecret';
 
-exports.register = async({name, email, password}) => {
+exports.register = async({name, email, password, role}) => {
     const existing  = await User.findOne({where: { email }});
     if(existing) throw new Error('Email already in use')
 
     const hashed = await bcrypt.hash(password, 10);
-    return await User.create({name, email, password: hashed})
+    return await User.create({name, email, password: hashed, role})
 
 }
 

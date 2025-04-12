@@ -3,7 +3,8 @@ const Category = require('./Category');
 const Supplier = require('./Supplier');
 const Purchase = require('./Purchase');
 const Sales = require('./Sales');
-const User = require('./User')
+const User = require('./User');
+const Transaction = require('./Transaction');
 
 module.exports = {
     Category,
@@ -11,5 +12,6 @@ module.exports = {
     Sales,
     Purchase,
     Supplier,
-    User
+    User,
+    Transaction
 }
