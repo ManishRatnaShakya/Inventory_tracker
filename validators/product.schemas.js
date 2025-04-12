@@ -17,7 +17,6 @@ const productSchemas = Joi.object({
       'number.base': `"categoryId" must be an integer`,
       'any.required': `"categoryId" is required`
     })
-
 })
 
 module.exports = {
