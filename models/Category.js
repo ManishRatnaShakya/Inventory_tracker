@@ -4,8 +4,13 @@ const sequelize = require('../config/database');
 const Category = sequelize.define('Category', {
     name: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        unique: true
     },
+    description: {
+        type: DataTypes.STRING,
+        allowNull: false
+    }
 });
 
 module.exports = Category;

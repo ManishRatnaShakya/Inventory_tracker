@@ -2,14 +2,13 @@
 require('dotenv').config();
 const sequelize = require('./config/database');
 const app = require('./app');
-const cors = require('cors');
-app.use(cors()); 
 
 
 const PORT = process.env.PORT || 5001
 
 sequelize.sync({
-    force: false
+    force: false,
+    alter: true
 }).then(() => {
     console.log('Database Synced');
     app.listen(PORT, () => {

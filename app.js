@@ -16,6 +16,11 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
+const cors = require('cors');
+app.use(cors({
+    credentials: true // if using cookies/sessions
+  })); 
+
 //controllers
 const authRouter = require('./routes/auth.routes');
 const categoryRouter = require('./routes/category.routes');
