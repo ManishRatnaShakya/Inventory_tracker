@@ -1,19 +1,16 @@
-// scripts/migrate.js
-const sequelize = require('../config/database');
-const Category = require('../models/Category'); // Import other models too if needed
+const { sequelize } = require('../models'); // This will now import from models/index.js
 
 const migrate = async () => {
   try {
     await sequelize.authenticate();
-    console.log('Connection has been established successfully.');
+    console.log('✅ DB connected.');
 
-    // Sync models
-    await sequelize.sync({ alter: true });
-    console.log('All models were synchronized successfully.');
-    
-    process.exit(); // Exit after syncing
+    await sequelize.sync({ alter: true }); // or { force: true } for full reset
+    console.log('✅ All models were synced.');
+
+    process.exit();
   } catch (error) {
-    console.error('Unable to connect to the database:', error);
+    console.error('❌ Migration failed:', error);
     process.exit(1);
   }
 };

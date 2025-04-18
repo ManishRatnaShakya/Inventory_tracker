@@ -5,12 +5,12 @@ const Product = require('./Product');
 
 
 const Purchase = sequelize.define('Purchase', {
-    quantity: {
+    total_amount: {
         type: DataTypes.INTEGER,
         allowNull: false
     },
 
-    purchaseDate: {
+    purchase_date: {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW
     },
