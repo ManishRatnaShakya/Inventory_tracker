@@ -8,6 +8,6 @@ const {authenticate} = require('../middleware/auth.middleware');
 
 router.post('/',
     authenticate,
-     validateWithJoi(createTransactionSchema), transactionController.create);
+    validateWithJoi(createTransactionSchema), transactionController.create);
 
 module.exports = router;

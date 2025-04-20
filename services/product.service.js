@@ -15,7 +15,7 @@ exports.getProductById = async (id) => {
 exports.updateProduct = async (id, updateData) => {
     const product = await Product.findByPk(id);
     if (!product) throw new Error('Product not found');
-    return await product.update(updateData);
+    return await product.update(updateData.data);
   };
   
   exports.deleteProduct = async (id) => {

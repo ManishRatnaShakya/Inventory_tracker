@@ -1,8 +1,10 @@
 const Joi = require('joi');
+const { description } = require('./supplier.schemas');
 
 const productSchemas = Joi.object({
     name: Joi.string().min(3).required(),
     quantity: Joi.number().required(),
+    description: Joi.string().required(),
     price: Joi.number().precision(2)
     .positive()
     .required()
