@@ -11,7 +11,6 @@ exports.getProductById = async (id) => {
     return await Product.findByPk(id, { include: Category });
   };
   
-  
 exports.updateProduct = async (id, updateData) => {
     const product = await Product.findByPk(id);
     if (!product) throw new Error('Product not found');

@@ -1,25 +1,15 @@
 const Joi = require('joi');
 
 const purchaseSchemas = Joi.object({
-    quantity: Joi.number().required(),
     purchaseDate: Joi.date().required(),
-    productId: Joi.number()
-        .integer()
-        .required()
-        .messages({
-          'number.base': `"productId" must be an integer`,
-          'any.required': `"productId" is required`
-        }),
-
+    total_amount: Joi.number().required(),
     supplierId: Joi.number()
-    .integer()
-    .required()
-    .messages({
-      'number.base': `"productId" must be an integer`,
-      'any.required': `"productId" is required`
-    }),
-
-    
+           .integer()
+           .required()
+           .messages({
+             'number.base': `"supplierId" must be an integer`,
+             'any.required': `"supplierId" is required`
+           }),
 });
 
 module.exports = purchaseSchemas

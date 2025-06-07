@@ -16,14 +16,14 @@ const Purchase = sequelize.define('Purchase', {
     },
 });
 
-//ForiegnKey
-Product.hasMany(Purchase, {
-    foreignKey: 'productId',
-    onDelete: 'CASCADE'
-});
-Purchase.belongsTo(Product, {
-    foreignKey: 'productId'
-})
+// //ForiegnKey
+// Product.hasMany(Purchase, {
+//     foreignKey: 'productId',
+//     onDelete: 'CASCADE'
+// });
+// Purchase.belongsTo(Product, {
+//     foreignKey: 'productId'
+// })
 
 //ForiegnKey
 Supplier.hasMany(Purchase, {

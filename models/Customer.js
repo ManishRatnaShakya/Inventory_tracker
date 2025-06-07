@@ -1,16 +1,19 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
-const Category = sequelize.define('Category', {
+const Customer = sequelize.define('Customer', {
     name: {
         type: DataTypes.STRING,
         allowNull: false,
-
     },
-    description: {
+    email: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    phone: {
         type: DataTypes.STRING,
         allowNull: false
     }
 });
 
-module.exports = Category;
+module.exports = Customer;

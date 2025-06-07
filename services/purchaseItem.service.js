@@ -1,7 +1,7 @@
 const { Purchase, Product, PurchaseItem} = require('../models');
 
 exports.createPurchaseItem = async(data) => {
-    return await PurchaseItem.create(data);
+    return await PurchaseItem.bulkCreate(data);
 };
 exports.getAllPurchaseItems = async () => {
     return await PurchaseItem.findAll({include: [Product, Purchase]});
@@ -22,3 +22,10 @@ exports.deletePurchaseItem = async (id) => {
     if (!purchase) throw new Error('Category not found');
     return await purchase.destroy();
   };
+  
+exports.getPurchaseItemsByPurchaseId = async (purchaseId) => {
+    return await PurchaseItem.findAll({
+      where: { purchaseId },
+    });
+  };
+  

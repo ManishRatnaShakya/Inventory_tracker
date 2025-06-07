@@ -8,6 +8,7 @@ const PurchaseItem = require('./PurchaseItems')
 const User = require('./User');
 const Stock = require('./Stock');
 const Transaction = require('./Transaction');
+const Customer = require('./Customer')
 
 const sequelize = require('../config/database');
 // import other models similarly
@@ -23,7 +24,8 @@ const db = {
   Supplier,
   PurchaseItem,
   User,
-  Transaction
+  Transaction,
+  Customer
 };
 
 module.exports = db;

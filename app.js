@@ -28,13 +28,15 @@ const productRouter = require('./routes/product.routes');
 const supplierRouter = require('./routes/supplier.routes');
 const purchaseRouter = require('./routes/purchase.routes');
 const salesController = require('./routes/sales.routes');
-const transactionController = require('./routes/transaction.routes')
+const transactionController = require('./routes/transaction.routes');
+const purchaseItemRoute = require('./routes/purchaseItem.routes')
 
 
 //routes
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/categories', categoryRouter);
 app.use('/api/v1/products', productRouter);
+app.use('/api/v1/purchase-items', purchaseItemRoute)
 app.use('/api/v1/supplier', supplierRouter);
 app.use('/api/v1/purchase', purchaseRouter);
 app.use('/api/v1/sales', salesController);

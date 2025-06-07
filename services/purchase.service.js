@@ -4,15 +4,15 @@ exports.createPurchase = async(data) => {
     return await Purchase.create(data);
 };
 exports.getAllPurchase = async () => {
-    return await Purchase.findAll({include: [Product, Supplier]});
+    return await Purchase.findAll({include: [Supplier]});
   };
   
 exports.getPurchaseById = async (id) => {
-    return await Purchase.findByPk(id, {include: [Product, Supplier]});
+    return await Purchase.findByPk(id, {include: [ Supplier]});
   };
   
 exports.updatePurchase = async (id, updateData) => {
-    const purchase = await Purchase.findByPk(id, {include: [Product, Supplier]});
+    const purchase = await Purchase.findByPk(id, {include: [ Supplier]});
     if (!purchase) throw new Error('Category not found');
     return await purchase.update(updateData);
   };

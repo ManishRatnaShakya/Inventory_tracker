@@ -2,12 +2,7 @@ const {DataTypes} = require('sequelize');
 const sequelize = require('../config/database');
 
 const PurchaseItems = sequelize.define('PurchaseItems', {
-    total_amount: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    },
-
-    purchaseId: {
+    totalAmount: {
         type: DataTypes.INTEGER,
         allowNull: false
     },
@@ -16,8 +11,19 @@ const PurchaseItems = sequelize.define('PurchaseItems', {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW
     },
+    
+    quantity: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+    
 
     productId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      
+    purchaseId: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
@@ -25,7 +31,6 @@ const PurchaseItems = sequelize.define('PurchaseItems', {
 
 //ForiegnKey
 PurchaseItems.associate = (models) => {
-   PurchaseItems.belongsTo(models.Purchase, {foreignKey: 'purchaseId'});
    PurchaseItems.belongsTo(models.Product, {foreignKey: 'productId'});
 };
 
